@@ -1,6 +1,7 @@
 # Changes
-1. Local snapshots are mount to a named path instead of `/tmp`. [PR#1](https://github.com/warm-metal/buildkit/pull/1)
+1. Local snapshots are mount to a named path instead of `/tmp`. [PR#1](https://github.com/warm-metal/buildkit/pull/1), [PR#3](https://github.com/warm-metal/buildkit/pull/3)
 2. **http_proxy**s of buildkitd will be used to build images. [PR#2](https://github.com/warm-metal/buildkit/pull/2)
+3. Build buildkit images in buildkitd itself. Try `make dev-images` if you have `kubectl-dev` installed. [PR#3](https://github.com/warm-metal/buildkit/pull/3)
 
 The privileged image is open in [DockerHub](https://hub.docker.com/r/warmmetal/buildkit). Fell free to test.
 

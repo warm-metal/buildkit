@@ -9,6 +9,11 @@ images: FORCE
 	hack/images local moby/buildkit
 	TARGET=rootless hack/images local moby/buildkit
 
+dev-images: FORCE
+# moby/buildkit:local and moby/buildkit:local-rootless are created on Docker
+	hack/images-dev local docker.io/warmmetal/buildkit
+	TARGET=rootless hack/images-dev local docker.io/warmmetal/buildkit
+
 install: FORCE
 	mkdir -p $(DESTDIR)$(bindir)
 	install bin/* $(DESTDIR)$(bindir)
@@ -42,5 +47,5 @@ vendor:
 generated-files:
 	./hack/update-generated-files
 
-.PHONY: vendor generated-files test binaries images install clean lint validate-all validate-vendor validate-generated-files
+.PHONY: vendor generated-files test binaries images dev-images install clean lint validate-all validate-vendor validate-generated-files
 FORCE:
