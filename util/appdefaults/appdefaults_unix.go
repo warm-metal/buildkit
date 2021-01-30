@@ -9,9 +9,10 @@ import (
 )
 
 const (
-	Address   = "unix:///run/buildkit/buildkitd.sock"
-	Root      = "/var/lib/buildkit"
-	ConfigDir = "/etc/buildkit"
+	Address      = "unix:///run/buildkit/buildkitd.sock"
+	Root         = "/var/lib/buildkit"
+	SnapshotRoot = "/var/lib/buildkit/local-snapshot"
+	ConfigDir    = "/etc/buildkit"
 )
 
 // UserAddress typically returns /run/user/$UID/buildkit/buildkitd.sock
