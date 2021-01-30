@@ -5,6 +5,7 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"fmt"
+	"github.com/moby/buildkit/snapshot"
 	"io/ioutil"
 	"net"
 	"os"
@@ -201,6 +202,8 @@ func main() {
 			logrus.SetLevel(logrus.DebugLevel)
 		}
 
+		snapshot.InitRoot(cfg.SnapshotRoot)
+
 		if cfg.GRPC.DebugAddress != "" {
 			if err := setupDebugHandlers(cfg.GRPC.DebugAddress); err != nil {
 				return err
@@ -376,6 +379,10 @@ func setDefaultConfig(cfg *config.Config) {
 
 	if cfg.Root == "" {
 		cfg.Root = appdefaults.Root
+	}
+
+	if cfg.SnapshotRoot == "" {
+		cfg.SnapshotRoot = appdefaults.SnapshotRoot
 	}
 
 	if len(cfg.GRPC.Address) == 0 {

@@ -11,9 +11,10 @@ import (
 	"github.com/pkg/errors"
 )
 
-const localSnapshotRoot = "/var/lib/buildkit/local-snapshot"
+var localSnapshotRoot = ""
 
-func init() {
+func InitRoot(snapshotRoot string) {
+	localSnapshotRoot = snapshotRoot
 	if err := os.MkdirAll(localSnapshotRoot, 0640); err != nil {
 		panic(err)
 	}
