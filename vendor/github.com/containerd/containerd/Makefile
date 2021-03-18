@@ -188,7 +188,7 @@ bin/cri-integration.test:
 
 cri-integration: binaries bin/cri-integration.test ## run cri integration tests
 	@echo "$(WHALE) $@"
-	@./hack/test-cri-integration.sh
+	@./script/test/cri-integration.sh
 	@rm -rf bin/cri-integration.test
 
 benchmark: ## run benchmarks tests
@@ -227,7 +227,7 @@ man: mandir $(addprefix man/,$(MANPAGES))
 mandir:
 	@mkdir -p man
 
-# Kept for backwards compatability
+# Kept for backwards compatibility
 genman: man/containerd.8 man/ctr.8
 
 man/containerd.8: FORCE
@@ -376,6 +376,7 @@ root-coverage: ## generate coverage profiles for unit tests that require root
 
 vendor:
 	@echo "$(WHALE) $@"
+	@go mod tidy
 	@go mod vendor
 
 help: ## this help
