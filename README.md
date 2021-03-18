@@ -3,7 +3,7 @@
 2. **http_proxy**s of buildkitd will be used to build images. [PR#2](https://github.com/warm-metal/buildkit/pull/2)
 3. Build buildkit images in buildkitd itself. Try `make dev-images` if you have `kubectl-dev` installed. [PR#3](https://github.com/warm-metal/buildkit/pull/3)
 
-The privileged image is open in [DockerHub](https://hub.docker.com/r/warmmetal/buildkit). Fell free to test.
+The privileged image is open in [DockerHub](https://hub.docker.com/r/warmmetal/buildkit). Feel free to test.
 
 [![asciicinema example](https://asciinema.org/a/gPEIEo1NzmDTUu2bEPsUboqmU.png)](https://asciinema.org/a/gPEIEo1NzmDTUu2bEPsUboqmU)
 
