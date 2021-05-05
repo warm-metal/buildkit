@@ -85,6 +85,4 @@ for tagName in $tagNames; do
   tagFlags="$tagFlags--tag=$tagName "
 done
 
-buildxCmd build $targetFlag $importCacheFlags $exportCacheFlags $tagFlags $outputFlag \
-  --platform "$PLATFORMS" \
-  $currentcontext
+kubectl dev build $targetFlag $tagFlags $currentcontext

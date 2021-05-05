@@ -295,7 +295,7 @@ type secretMountInstance struct {
 }
 
 func (sm *secretMountInstance) Mount() ([]mount.Mount, func() error, error) {
-	dir, err := ioutil.TempDir("", "buildkit-secrets")
+	dir, err := snapshot.MakeLocalMountSourceDir("buildkit-secrets")
 	if err != nil {
 		return nil, nil, errors.Wrap(err, "failed to create temp dir")
 	}

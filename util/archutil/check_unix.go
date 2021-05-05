@@ -5,8 +5,8 @@ package archutil
 import (
 	"bytes"
 	"compress/gzip"
+	"github.com/moby/buildkit/snapshot"
 	"io"
-	"io/ioutil"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -20,7 +20,7 @@ func withChroot(cmd *exec.Cmd, dir string) {
 }
 
 func check(bin string) error {
-	tmpdir, err := ioutil.TempDir("", "qemu-check")
+	tmpdir, err := snapshot.MakeLocalMountSourceDir("qemu-check")
 	if err != nil {
 		return err
 	}

@@ -23,7 +23,9 @@ debug = true
 root = "/var/lib/buildkit"
 # insecure-entitlements allows insecure entitlements, disabled by default.
 insecure-entitlements = [ "network.host", "security.insecure" ]
-
+# local-mount-source-root specifies a directory where source directories of local mounts would be creeated.
+# If the same directory is shared with the host, the host container runtime can mount those local mounts to containers.
+local-mount-source-root = "/var/lib/buildkit/local-mnt-src"
 [grpc]
   address = [ "tcp://0.0.0.0:1234" ]
   # debugAddress is address for attaching go profiles and debuggers.

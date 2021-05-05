@@ -202,7 +202,7 @@ func main() {
 			logrus.SetLevel(logrus.DebugLevel)
 		}
 
-		snapshot.InitRoot(cfg.SnapshotRoot)
+		snapshot.InitLocalMountSourceRoot(cfg.LocalMountSourceRoot)
 
 		if cfg.GRPC.DebugAddress != "" {
 			if err := setupDebugHandlers(cfg.GRPC.DebugAddress); err != nil {
@@ -381,8 +381,8 @@ func setDefaultConfig(cfg *config.Config) {
 		cfg.Root = appdefaults.Root
 	}
 
-	if cfg.SnapshotRoot == "" {
-		cfg.SnapshotRoot = appdefaults.SnapshotRoot
+	if cfg.LocalMountSourceRoot == "" {
+		cfg.LocalMountSourceRoot = appdefaults.SnapshotRoot
 	}
 
 	if len(cfg.GRPC.Address) == 0 {
