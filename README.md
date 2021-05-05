@@ -1,7 +1,8 @@
 # Changes
-1. Local snapshots are mount to a named path instead of `/tmp`. [PR#1](https://github.com/warm-metal/buildkit/pull/1), [PR#3](https://github.com/warm-metal/buildkit/pull/3)
+1. Sources of local mounts are created in a named path instead of `/tmp`. So, buildkitd can share them with the host container runtime. [PR#1](https://github.com/warm-metal/buildkit/pull/1), [PR#3](https://github.com/warm-metal/buildkit/pull/3)
 2. **http_proxy**s of buildkitd will be used to build images. [PR#2](https://github.com/warm-metal/buildkit/pull/2)
 3. Build buildkit images in buildkitd itself. Try `make dev-images` if you have `kubectl-dev` installed. [PR#3](https://github.com/warm-metal/buildkit/pull/3)
+4. Multi-arch image building is supported even with host `containerd` runtime. [PR#8](https://github.com/warm-metal/buildkit/pull/8)
 
 The privileged image is open in [DockerHub](https://hub.docker.com/r/warmmetal/buildkit). Fell free to test.
 
