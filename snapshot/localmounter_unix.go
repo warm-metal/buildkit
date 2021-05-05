@@ -3,22 +3,12 @@
 package snapshot
 
 import (
-	"io/ioutil"
 	"os"
 	"syscall"
 
 	"github.com/containerd/containerd/mount"
 	"github.com/pkg/errors"
 )
-
-var localSnapshotRoot = ""
-
-func InitRoot(snapshotRoot string) {
-	localSnapshotRoot = snapshotRoot
-	if err := os.MkdirAll(localSnapshotRoot, 0640); err != nil {
-		panic(err)
-	}
-}
 
 func (lm *localMounter) Mount() (string, error) {
 	lm.mu.Lock()
@@ -46,7 +36,7 @@ func (lm *localMounter) Mount() (string, error) {
 		}
 	}
 
-	dir, err := ioutil.TempDir(localSnapshotRoot, "buildkit-mount")
+	dir, err := MakeLocalMountSourceDir("buildkit-mount")
 	if err != nil {
 		return "", errors.Wrap(err, "failed to create temp dir")
 	}

@@ -6,8 +6,8 @@ binaries: FORCE
 
 images: FORCE
 # moby/buildkit:local and moby/buildkit:local-rootless are created on Docker
-	hack/images local moby/buildkit
-	TARGET=rootless hack/images local moby/buildkit
+	hack/images local docker.io/warmmetal/buildkit
+	TARGET=rootless hack/images local docker.io/warmmetal/buildkit
 
 dev-images: FORCE
 # moby/buildkit:local and moby/buildkit:local-rootless are created on Docker
